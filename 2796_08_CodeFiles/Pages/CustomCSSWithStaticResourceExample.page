@@ -1,0 +1,4 @@
+<apex:page >
+<apex:stylesheet value="{!$Resource.CustomMainStyle}"/>
+<apex:outputText value="This text is styled via styleClass attribute via static resources" styleClass="sample"/>
+</apex:page>

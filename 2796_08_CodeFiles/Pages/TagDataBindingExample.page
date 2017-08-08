@@ -1,0 +1,24 @@
+<apex:page standardController="Employee__c">
+  <apex:pageBlock title="Hello {!$User.FirstName}">
+  <apex:outputLabel value="You are viewing the employee record of {!Employee__c.Name}"></apex:outputLabel>
+      
+      <apex:pageBlockSection >
+          <apex:outputField value="{!Employee__c.First_Name__c}"/>
+          <apex:outputField value="{!Employee__c.Last_Name__c}"/>
+          <apex:outputField value="{!Employee__c.Email__c}"/>
+          <apex:outputField value="{!Employee__c.Leave_Category__c}"/>
+          <apex:outputField value="{!Employee__c.Manager__c}"/>
+      <apex:outputField value="{!Employee__c.IsActive__c}"/>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="Leaves">
+          <apex:pageBlockTable value="{!Employee__c.Leaves__r}" var="leave">
+              <apex:column value="{!leave.From_Date__c}"/>
+              <apex:column value="{!leave.To_Date__c}"/>
+              <apex:column value="{!leave.Leave_Type__c}"/>
+              <apex:column value="{!leave.Number_of_Days__c}"/>
+              <apex:column value="{!leave.Status__c}"/>
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+</apex:page>

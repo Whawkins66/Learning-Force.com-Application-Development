@@ -1,0 +1,3 @@
+<apex:page standardController="Employee__c">
+  <c:EmployeeSummary employeeId="{!Employee__c.Id}" noOfRecentLeaves="2"></c:EmployeeSummary>
+</apex:page>

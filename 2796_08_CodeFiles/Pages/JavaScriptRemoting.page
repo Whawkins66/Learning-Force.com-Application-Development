@@ -1,0 +1,28 @@
+<apex:page controller="JavaScriptRemotingController" id="pageId">
+  <script type="text/javascript">
+function updateStatus(input,id) {
+var inputStatus=id;
+JavaScriptRemotingController.processLeave(inputStatus,function(result,event){
+},{escape:true});
+}</script>
+ <apex:form id="formId">
+    <apex:pageBlock id="pageBId">
+
+        <apex:pageBlockTable id="tableId" value="{!Leaves}" var="leave">
+             <apex:column value="{!leave.From_Date__c}"/>
+              <apex:column value="{!leave.To_Date__c}"/>
+              <apex:column value="{!leave.Leave_Type__c}"/>
+              <apex:column value="{!leave.Number_of_Days__c}"/>
+              <apex:column value="{!leave.Status__c}"/>
+            <apex:column id="checkId" headerValue="Status">
+                <apex:inputField id="inputStatus" value="{!leave.Status__c}" />
+            </apex:column>
+            <apex:column headerValue="Approve Leave" >
+                <apex:selectCheckboxes onclick="updateStatus(this,'{!leave.Id}');">                   
+                 </apex:selectCheckboxes>
+            </apex:column>
+           
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

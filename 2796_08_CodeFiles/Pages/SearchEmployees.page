@@ -1,0 +1,21 @@
+<apex:page controller="SearchEmployeeController">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+              <apex:pageBlockSectionItem >
+                  <apex:outputLabel value="Employee Name Or keyword"></apex:outputLabel>
+                  <apex:inputText value="{!Keyword}"/>                
+              </apex:pageBlockSectionItem> 
+               <apex:commandButton value="Search" action="{!SearchEmployees}"/>           
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+     
+       <apex:pageBlock title="Search Result" id="searchResult">
+            <apex:pageBlockTable value="{!ExistingEmployees}" var="oneItem" rendered="{!ExistingEmployees.size > 0}">
+                <apex:column value="{!oneItem.Name}"/>
+                <apex:column value="{!oneItem.Email__c}"/>
+            </apex:pageBlockTable>
+            <apex:outputText value="No records to display" rendered="{!ExistingEmployees.size == 0}"></apex:outputText>      
+        </apex:pageBlock>
+  </apex:form>
+</apex:page>

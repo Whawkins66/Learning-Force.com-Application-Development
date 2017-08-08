@@ -1,0 +1,26 @@
+<apex:page standardController="Employee__c" recordSetvar="employees">
+    <apex:form id="theForm">
+        <apex:pageBlock title="Viewing employees">              
+            <apex:pageBlockSection >
+                <apex:selectList value="{!filterid}" size="1">
+                    <apex:selectOptions value="{!listviewoptions}"/>
+                    <apex:actionSupport event="onchange"
+rerender="list"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+             
+            <apex:pageBlockSection id="list">
+                <apex:dataList var="a" value="{!employees}" type="1">
+                {!a.name}
+                </apex:dataList>
+            </apex:pageBlockSection>
+            
+            <apex:panelGrid columns="2">
+                <apex:commandLink action="{!previous}"
+rerender="list">Previous</apex:commandlink>
+                <apex:commandLink action="{!next}"
+rerender="list">Next</apex:commandlink>
+            </apex:panelGrid>       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,35 @@
+<apex:page controller="LeaveStatusUpdateController" id="pageId">
+    <script type="text/javascript">
+        function updateStatus(input,id) {
+        
+            if(input.checked){
+                document.getElementById(id).value="Approved by Direct Manager";
+                //alert(document.getElementById(id).value);
+            }else{
+              document.getElementById(id).value="New";
+                //alert(document.getElementById(id).value);
+            }
+        }
+    </script>
+    <apex:form id="formId">
+       <apex:pageBlock id="pageBId">
+        <apex:pageBlockTable id="tableId" value="{!Leaves}" var="leave">
+            <apex:column value="{!leave.Employee__r.Name}"/>
+            <apex:column value="{!leave.From_Date__c}"/>
+            <apex:column value="{!leave.To_Date__c}"/>
+            <apex:column value="{!leave.Leave_Type__c}"/>
+              <apex:column value="{!leave.Number_of_Days__c}"/>
+            <apex:column id="checkId" headerValue="Status">
+                <apex:inputField id="inputStatus" value="{!leave.Status__c}" />
+            </apex:column>
+            <apex:column headerValue="Approval" >
+                <apex:selectCheckboxes onclick="updateStatus(this,'{!$Component.inputStatus}');" >
+                   
+                 </apex:selectCheckboxes>
+            </apex:column>
+           
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+   
+</apex:page>

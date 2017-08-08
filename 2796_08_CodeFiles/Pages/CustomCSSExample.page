@@ -1,0 +1,9 @@
+<apex:page >
+    <style>
+        .sample {font-weight: bold;}
+    </style>
+    
+    <apex:outputText value="This text is styled via style attribute" style="font-weight: bold;"/> <br/>
+    
+    <apex:outputText value="This text is styled via styleClass attribute" styleClass="sample"/>
+</apex:page>

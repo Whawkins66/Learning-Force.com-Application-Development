@@ -1,0 +1,19 @@
+<apex:page standardController="Employee__c">
+<apex:form >
+  <apex:pageBlock title="Create new employee">
+      <apex:pageBlockButtons >
+          <apex:commandButton value="Save" action="{!save}" rendered="{!$ObjectType.Employee__c.accessible}"/>
+          <apex:commandButton value="Cancel" action="{!cancel}"/>
+      </apex:pageBlockButtons>  
+      
+      <apex:pageBlockSection >
+          <apex:inputField value="{!Employee__c.First_Name__c}"/>
+          <apex:inputField value="{!Employee__c.Last_Name__c}"/>
+          <apex:inputField value="{!Employee__c.Email__c}"/>
+          <apex:inputField value="{!Employee__c.Leave_Category__c}"/>
+          <apex:inputField value="{!Employee__c.Manager__c}"/>
+      <apex:inputField value="{!Employee__c.IsActive__c}"/>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:form>  
+</apex:page>

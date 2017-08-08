@@ -1,0 +1,29 @@
+<apex:component controller="EmployeeSummaryComponenetController">
+    <!-- Attribute Definitions -->
+    <apex:attribute name="employeeId" Type="String" required="true" description="employee id" assignTo="{!EmpID}"/>
+    <apex:attribute name="noOfRecentLeaves" Type="Integer" required="true" description="Number of recent leaves" assignTo="{!RecentNo}"/>
+    <!-- Attribute Definitions : End -->
+    
+     <!-- Component Definition -->
+    <apex:componentBody >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Employee Details">
+                <apex:outputField value="{!CurrentEmployee.Name}"/>
+                <apex:outputField value="{!CurrentEmployee.Leave_Category__c}"/>
+                <apex:outputField value="{!CurrentEmployee.Email__c}"/>
+                <apex:outputField value="{!CurrentEmployee.Manager__c}"/>
+            </apex:pageBlockSection>
+           
+            <apex:pageBlockSection title="Recent Leave Details">
+                <apex:pageBlockTable value="{!RecentLeaveList}" var="leave">
+                    <apex:column value="{!leave.From_Date__c}"/>
+                    <apex:column value="{!leave.To_Date__c}"/>
+                    <apex:column value="{!leave.Number_of_Days__c}"/>,
+                    <apex:column value="{!leave.Leave_Type__c}"/>
+                    <apex:column value="{!leave.Status__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>   
+        </apex:pageBlock>
+    </apex:componentBody>
+    <!-- Component Definition : End -->
+</apex:component>

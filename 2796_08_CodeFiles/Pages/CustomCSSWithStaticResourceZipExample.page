@@ -1,0 +1,10 @@
+<apex:page >
+<apex:stylesheet value="{!URLFOR($Resource.CustomStyleZip,'/CustomStyleZipFolder/main.css')}"/>
+<apex:outputText value="This text is styled via styleClass attribute via static resources" styleClass="sample"/> <br/>
+<apex:outputText value="Following image is loaded via css class"/>
+<br/>
+<apex:outputPanel styleClass="imageCls">
+</apex:outputPanel>
+<apex:outputText value="Following image is loaded directly from static resource"/> <br/>
+<apex:image value="{!URLFOR($Resource.CustomStyleZip,'/CustomStyleZipFolder/images/sfLogo.jpg')}" width="120" height="100"/>
+</apex:page>
